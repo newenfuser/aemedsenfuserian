@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--aem-enfuser-eds--newenfuser.aem.page/
-- Live: https://main--aem-enfuser-eds--newenfuser.aem.live/
+- Preview: https://main--aemedsenfuserian--newenfuser.aem.page/
+- Live: https://main--aemedsenfuserian--newenfuser.aem.live/
 
 ## Installation
 
