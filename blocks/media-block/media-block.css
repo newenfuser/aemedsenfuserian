@@ -1,4 +1,3 @@
-
 /* The Modal (background) */ .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); padding-top: 60px; } /* Modal Content */ .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; } /* Close Button */ .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; } .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer;}
 .container {
     text-align: left;
@@ -8,29 +7,33 @@
 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-.image {
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 20px;
+.media-block > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-gap: 24px;
 }
 
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.media-block > ul > li {
+  background-color: var(--background-color);
 }
 
-.description {
-    font-size: 16px;
-    margin-bottom: 20px;
+.media-block .media-block-body {
+  margin: 16px;
 }
 
-.button {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
+.media-block .media-block-image {
+  line-height: 0;
+}
+
+.media-block > ul > li img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+:root {
+--link-color: #333;
+--link-hover-color: #333;
 }
