@@ -16,18 +16,22 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
   // Youtube model execution
-  createModal();
+
   let imageList = document.querySelectorAll(".media-block-image");
 
   imageList.forEach(image=>{
-      image.addEventListener("click", ()=>{
-          displayModal();
+      image.addEventListener("click", (event)=>{
+          event.preventDefault();
+          const targetElement = event.target;
+          const parentEle = targetElement.closest(".media-block-image");
+          const URL = parentEle.querySelector("a").getAttribute("href");
+          displayModal(URL);
       })
   })
 
 }
 
-function createModal() { // Create modal container
+function createModal(URL) { // Create modal container
   const modal = document.createElement('div');
   modal.id = 'myModal';
   modal.className = 'modal'; // Create modal content
@@ -41,7 +45,7 @@ function createModal() { // Create modal container
   const iframe = document.createElement('iframe'); // Set the attributes
   iframe.width = '984';
   iframe.height = '400';
-  iframe.src = 'https://www.youtube.com/embed/OEyOsZKSppk';
+  iframe.src = URL;
   iframe.title = 'NEXA Create. Inspire.';
   iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
   iframe.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -54,6 +58,12 @@ function createModal() { // Create modal container
 }
 
 // Function to display the modal
-function displayModal() {
-    const modal = document.getElementById('myModal'); if (!modal) { createModal(); } document.getElementById('myModal').style.display = 'block';
+function displayModal(URL) {
+    const modal = document.getElementById('myModal');
+    if (!modal) {
+    createModal(URL);
+    }else{
+    modal.querySelector("iframe").setAttribute("src", URL);
+    }
+     document.getElementById('myModal').style.display = 'block';
 }
